@@ -5,12 +5,10 @@
     "noImplicitAny": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
-  "include": [
-    "server/src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["server/src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

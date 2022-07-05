@@ -1,7 +1,8 @@
 import cookieParser from 'cookie-parser'
 import express from 'express'
 import cors from 'cors'
-import coffeeRouter from './routes/coffeeRouter'
+import coffeeRouter from './route/coffeeRouter'
+import AppDataSource from './datasource'
 
 class Server {
   private app: express.Express
@@ -29,10 +30,21 @@ class Server {
     this.app.use('/api/v1/coffees', coffeeRouter)
   }
 
+  initDataSource() {
+    AppDataSource.initialize()
+      .then(() => {
+        console.log('데이터베이스를 초기화 합니다.')
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
+
   listen() {
     this.loadServerEnvironment()
     this.setMiddlewares()
     this.setRoutes()
+    this.initDataSource()
     this.app.listen(this.port, () => {
       console.log(`app listening at ${this.port}`)
     })
