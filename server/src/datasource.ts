@@ -1,6 +1,6 @@
 import 'reflect-metadata'
 import { DataSource } from 'typeorm'
-import { Coffee } from './model/Coffee'
+import { Product } from './model/Product'
 
 const AppDataSource = new DataSource({
   type: 'mariadb',
@@ -9,7 +9,7 @@ const AppDataSource = new DataSource({
   username: 'root',
   password: 'dhtpckd1',
   database: 'starbocks',
-  entities: [Coffee],
+  entities: [Product],
   synchronize: true,
   logging: true,
 })

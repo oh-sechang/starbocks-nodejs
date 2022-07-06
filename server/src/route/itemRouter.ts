@@ -1,27 +1,27 @@
 import express, { Request, Response } from 'express'
-import { Coffee } from '../model/Coffee'
-import coffeeRepository from '../repository/coffeeRepository'
+import { Product } from '../model/Product'
+import itemRepository from '../repository/itemRepository'
 const router = express.Router()
 
 router.get('/', async (req: Request, res: Response) => {
-  const coffees: Coffee[] = await coffeeRepository.findAll(10)
+  const items: Product[] = await itemRepository.findAll(10)
 
   res.json({
     success: true,
     message: '성공적으로 조회되었습니다.',
-    coffees,
+    items,
   })
 })
 
 router.get('/create', async (req: Request, res: Response) => {
-  const coffee: Coffee = new Coffee()
-  coffee.name = 'HOT 카페라떼'
+  const item: Product = new Product()
+  item.name = 'HOT 카페라떼'
 
-  await coffeeRepository.save(coffee)
+  await itemRepository.save(item)
 
   res.json({
     success: true,
-    coffee,
+    item,
   })
 })
 

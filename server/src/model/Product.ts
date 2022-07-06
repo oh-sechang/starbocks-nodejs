@@ -5,9 +5,10 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm'
+import { SizeType } from '../type/SizeType'
 
 @Entity()
-export class Coffee {
+export class Product {
   @PrimaryGeneratedColumn()
   id: number
 
@@ -23,20 +24,11 @@ export class Coffee {
   description: string
 
   @Column({
-    nullable: true,
+    type: 'enum',
+    enum: SizeType,
+    default: SizeType.REGULAR,
   })
-  filename: string
-
-  @Column({
-    type: 'double',
-    nullable: true,
-  })
-  views: number
-
-  @Column({
-    default: false,
-  })
-  isPublished: boolean
+  sizeType: SizeType
 
   @CreateDateColumn()
   createdAt: Date

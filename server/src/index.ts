@@ -1,7 +1,7 @@
 import cookieParser from 'cookie-parser'
 import express from 'express'
 import cors from 'cors'
-import coffeeRouter from './route/coffeeRouter'
+import itemRouter from './route/itemRouter'
 import AppDataSource from './datasource'
 
 class Server {
@@ -27,7 +27,7 @@ class Server {
 
   setRoutes() {
     console.info('라우터를 등록합니다.')
-    this.app.use('/api/v1/coffees', coffeeRouter)
+    this.app.use('/api/v1/items', itemRouter)
   }
 
   initDataSource() {
