@@ -1,4 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm'
 
 @Entity()
 export class Coffee {
@@ -10,15 +16,31 @@ export class Coffee {
   })
   name: string
 
-  @Column('text')
+  @Column({
+    type: 'text',
+    nullable: true,
+  })
   description: string
 
-  @Column()
+  @Column({
+    nullable: true,
+  })
   filename: string
 
-  @Column('double')
+  @Column({
+    type: 'double',
+    nullable: true,
+  })
   views: number
 
-  @Column()
+  @Column({
+    default: false,
+  })
   isPublished: boolean
+
+  @CreateDateColumn()
+  createdAt: Date
+
+  @UpdateDateColumn()
+  updatedAt: Date
 }
