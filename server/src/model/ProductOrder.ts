@@ -9,7 +9,7 @@ import {
   ProductBasket,
   ProductBasketItem,
   ProductBasketItemType,
-} from './ProudctBasket'
+} from './ProductBasket'
 import { Product } from './Product'
 
 export interface ProductOrder {
@@ -37,7 +37,6 @@ export class ProductOrderImpl implements ProductOrder {
   removeBasketItem(product: Product): void {
     const items: ProductBasketItem[] = this.productBasket.items
     const indexOfItem = items.findIndex((item) => item.product.id == product.id)
-    console.log('indexOfItem', indexOfItem)
 
     if (indexOfItem < 0) {
       throw new Error('아이템을 찾을 수 없습니다.')

@@ -4,6 +4,7 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
 } from 'typeorm'
 import { Product } from './Product'
 
@@ -12,6 +13,7 @@ export class ProductBasketItem {
   @PrimaryGeneratedColumn()
   id: number
 
+  @ManyToOne(() => Product, (product) => product.id)
   product: Product
 
   @Column({
@@ -52,5 +54,13 @@ export class ProductBasket {
 
   set items(items: ProductBasketItem[]) {
     this._items = items
+  }
+
+  totalPrice(): number {
+    let total: number = 0
+    this._items.forEach((item) => {
+      total += item.product.priceBySize() * item.quantity
+    })
+    return total
   }
 }

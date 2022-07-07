@@ -1,10 +1,10 @@
 import express, { Request, Response } from 'express'
 import { Product } from '../model/Product'
-import itemRepository from '../repository/itemRepository'
+import productRepository from '../repository/productRepository'
 const router = express.Router()
 
 router.get('/', async (req: Request, res: Response) => {
-  const items: Product[] = await itemRepository.findAll(10)
+  const items: Product[] = await productRepository.findAll(10)
 
   res.json({
     success: true,
@@ -17,7 +17,7 @@ router.get('/create', async (req: Request, res: Response) => {
   const item: Product = new Product()
   item.name = 'HOT 카페라떼'
 
-  await itemRepository.save(item)
+  await productRepository.save(item)
 
   res.json({
     success: true,

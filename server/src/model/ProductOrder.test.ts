@@ -1,6 +1,6 @@
 import { Product } from './Product'
 import { ProductOrderImpl, ProductOrder } from './ProductOrder'
-import { ProductBasket, ProductBasketItem } from './ProudctBasket'
+import { ProductBasket, ProductBasketItem } from './ProductBasket'
 
 test('아이템주문', () => {
   const productBasket: ProductBasket = new ProductBasket()
