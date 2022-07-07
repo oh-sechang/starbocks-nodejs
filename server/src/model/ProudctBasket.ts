@@ -33,12 +33,24 @@ export type ProductBasketItemType = {
 }
 
 export class ProductBasket {
-  items: [ProductBasketItem]
+  private _items: ProductBasketItem[]
+
+  constructor() {
+    this._items = []
+  }
 
   addItem(itemType: ProductBasketItemType) {
     const item: ProductBasketItem = new ProductBasketItem()
     item.product = itemType.item
     item.quantity = itemType.quantity
-    this.items.push(item)
+    this._items.push(item)
+  }
+
+  get items(): ProductBasketItem[] {
+    return this._items
+  }
+
+  set items(items: ProductBasketItem[]) {
+    this._items = items
   }
 }

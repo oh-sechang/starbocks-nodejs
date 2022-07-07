@@ -7,7 +7,8 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "target": "es5"
   },
   "include": ["server/src/**/*.ts"],
   "exclude": ["node_modules"]
