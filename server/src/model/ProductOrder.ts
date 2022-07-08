@@ -1,11 +1,4 @@
 import {
-  Column,
-  Entity,
-  PrimaryGeneratedColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
-} from 'typeorm'
-import {
   ProductBasket,
   ProductBasketItem,
   ProductBasketItemType,

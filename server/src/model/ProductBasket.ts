@@ -5,8 +5,10 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   ManyToOne,
+  JoinColumn,
 } from 'typeorm'
 import { Product } from './Product'
+import { Invoice } from './Invoice'
 
 @Entity()
 export class ProductBasketItem {
@@ -15,6 +17,10 @@ export class ProductBasketItem {
 
   @ManyToOne(() => Product, (product) => product.id)
   product: Product
+
+  @ManyToOne(() => Invoice, (invoice) => invoice.id)
+  @JoinColumn()
+  invoice: Invoice
 
   @Column({
     type: 'int',
