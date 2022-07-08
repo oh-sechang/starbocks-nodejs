@@ -20,7 +20,7 @@ test('장바구니 가격', () => {
   // 생성
   productOrder.createBasketItem(product, 2)
   productOrder.createBasketItem(product2, 2)
-  const totalPrice = productBasket.totalPrice()
+  const totalPrice: number = productBasket.totalPrice()
 
   expect(totalPrice).toBe(3500 * 2 + 5500 * 2)
 })
