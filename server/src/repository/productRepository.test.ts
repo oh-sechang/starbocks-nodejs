@@ -8,22 +8,10 @@ import { DataSource } from 'typeorm'
 
 const initDataSource = async () => {
   await AppDataSource.initialize()
-    .then(() => {
-      console.log('데이터베이스를 초기화 합니다.')
-    })
-    .catch((err) => {
-      console.error(err)
-    })
 }
 
 const closeDataSource = async () => {
   await AppDataSource.destroy()
-    .then(() => {
-      console.log('데이터베이스를 종료 합니다.')
-    })
-    .catch((err) => {
-      console.error(err)
-    })
 }
 
 beforeAll(async () => {
